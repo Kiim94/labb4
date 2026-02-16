@@ -4,6 +4,11 @@
   width:100%;
   display:block;
 }
+@mixin seagull-picture{
+  width:300px;
+  display:block;
+  margin:0 auto;
+}
 .pictures{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
@@ -16,35 +21,28 @@ img{
   @include img-style;
 }
 .seagull{
-  @include img-style;
-  width:300px;
-  display:block;
-  margin:0 auto;
+  @include seagull-picture;
   &:hover{
     animation: wobble 2s ease-in-out infinite;
   }
 }
 
 @keyframes wobble{
-  0%{
-    transform: rotate(0deg);
+  0%{transform: rotate(0deg);}
+  15%{transform: rotate(-3deg);}
+  30%{transform: rotate(3deg);}
+  45%{transform: rotate(-3deg);}
+  60%{transform: rotate(3deg);}
+  75%{transform: rotate(-2deg);}
+  100%{transform: rotate(0deg);}
+}
+.seagull2{
+  @include seagull-picture;
+  &:hover{
+    animation:speed-off 0.5s ease-out forwards;
   }
-  15%{
-    transform: rotate(-3deg);
-  }
-  30%{
-    transform: rotate(3deg);
-  }
-  45%{
-    transform: rotate(-3deg);
-  }
-  60%{
-    transform: rotate(3deg);
-  }
-  75%{
-    transform: rotate(-2deg);
-  }
-  100%{
-    transform: rotate(0deg);
-  }
+}
+@keyframes speed-off{
+  0%{transform: translateX(0px) rotate(0deg); opacity: 1;}
+  100%{transform: translateX(200px) rotate(-5deg); opacity: 0;}
 }
