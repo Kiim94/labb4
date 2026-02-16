@@ -55,6 +55,21 @@
                 <button class="btn-click">Klicka på mig!</button>
             </div>
         </section>
+        <section>
+            <h2>Bild-animation</h2>
+            <div class="animation-center">
+                <p>Håll muspekaren över måsen</p>
+            </div>
+            <picture class="seagull">
+                <source srcset="/src/images/seagull-200.webp 200w, /src/images/seagull-400.webp 400w" 
+                            sizes="(max-width: 600px) 200px, 300px"
+                            type="image/webp">
+                <img src="/src/images/seagull-400.jpg"
+                        srcset="/src/images/seagull-200.jpg 200w, /src/images/seagull-400.jpg 400w"
+                        sizes="(max-width: 600px) 200px, 300px"
+                        alt="Fiskmås">
+            </picture>
+        </section>
     </main>
     <footer>
     <p>Moa B. </p>
