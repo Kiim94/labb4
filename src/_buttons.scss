@@ -120,3 +120,39 @@ button{
   }
 }
 
+#smiley{
+  font-size:2rem;
+  border: none;
+  background:none;
+  transition: transform 0.2s ease;
+  &:active{
+    transform:scale(1.2)
+  }
+  &.shake{
+    animation:shake 0.5s;
+  }
+}
+
+@keyframes shake{
+  0%{transform: rotate(0deg);}
+  25%{transform: rotate(15deg);}
+  50%{transform: rotate(-15deg);}
+  100%{transform: rotate(0deg);}
+}
+
+.btn-click{
+  padding:0.4rem;
+  font-size:1rem;
+  outline:none;
+  border:none;
+  border-radius:15px;
+  box-shadow:0 9px grey;
+  background-color: colors.$button;
+  &:hover{
+    background-color:colors.$button-dark;
+    &:active{
+      box-shadow:0 5px #666;
+      transform:translateY(4px);
+    }
+  }
+}
