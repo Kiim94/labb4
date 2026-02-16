@@ -45,11 +45,13 @@ nav{
 @media(max-width:599px){
     .hamburger{
         display:inline-block;
-    }
+        span{
+            color:var(--nav-bg);
+        }
+    } 
     nav {
         //hamburgermny blev genomskinlig utan denna nedan
         color: var(--nav-text);
-
         .menu{
             display:none;
             flex-direction:column;
