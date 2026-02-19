@@ -5,6 +5,83 @@
   display:block;
   margin:0 auto;
 }
+
+.animation-center{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+//text-animeringar
+.text-move{
+  animation: color 5s infinite alternate;
+}
+
+@keyframes color{
+  from{
+    color:blue;
+  }
+  to{
+    color:red;
+  }
+}
+
+.float{
+  animation:float 3s infinite;
+}
+@keyframes float{
+  0%, 100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform: translateY(20px);
+  }
+}
+
+.flip{
+  display: inline-block;
+  animation:flip 2s infinite;
+}
+@keyframes flip{
+  100%{
+    transform: rotateY(360deg);
+  }
+}
+
+.shine{
+  width:fit-content;
+  border-radius:20px;
+  animation:shine 5s infinite;
+}
+@keyframes shine{
+  0%, 100%{
+    box-shadow: 0 0 10px goldenrod;
+  }
+  50%{
+    box-shadow: 0 0 70px goldenrod;
+  }
+}
+
+.box-peek{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background-color:purple;
+  position:relative;
+  animation:peek 1s infinite alternate ease-in-out;
+  margin-bottom:2rem;
+}
+
+@keyframes peek{
+  from{
+    opacity:0;
+    transform: translateX(-100%);
+  }
+  to{
+    transform:translateX(100%)
+  }
+}
+
 .rainbow{
   font-size:1.2rem;
   padding:0.5rem;
@@ -28,121 +105,6 @@
   }
   to{
     transform: translateY(-20px);
-  }
-}
-
-#smiley{
-  font-size:2rem;
-  border: none;
-  background:none;
-  transition: transform 0.2s ease;
-  &:active{
-    transform:scale(1.2)
-  }
-  &.shake{
-    animation:shake 0.5s;
-  }
-  &.wobble{
-    animation: wobble 0.3s forwards 2;
-  }
-}
-
-@keyframes shake{
-  0%{transform: rotate(0deg);}
-  25%{transform: rotate(15deg);}
-  50%{transform: rotate(-15deg);}
-  100%{transform: rotate(0deg);}
-}
-
-
-@keyframes wobble{
-  0%{transform: rotate(0deg);}
-  25%{transform: rotate(-5deg);}
-  50%{transform: rotate(5deg);}
-  75%{transform: rotate(-5deg);}
-  100%{transform: rotate(0deg);}
-}
-.btn-click{
-  padding:0.4rem;
-  font-size:1rem;
-  outline:none;
-  border:none;
-  border-radius:15px;
-  box-shadow:0 9px grey;
-  background-color: colors.$button;
-  &:hover{
-    background-color:colors.$button-dark;
-    &:active{
-      box-shadow:0 5px #666;
-      transform:translateY(4px);
-    }
-  }
-}
-
-//text-animeringar
-.text-move{
-  animation: color 5s infinite alternate;
-}
-
-@keyframes color{
-  from{
-    color:blue;
-  }
-  to{
-    color:red;
-  }
-}
-.float{
-  animation:float 3s infinite;
-}
-@keyframes float{
-  0%, 100%{
-    transform:translateY(0);
-  }
-  50%{
-    transform: translateY(20px);
-  }
-}
-
-.flip{
-  display: inline-block;
-  animation:flip 2s infinite;
-}
-@keyframes flip{
-  100%{
-    transform: rotateY(360deg);
-  }
-}
-.shine{
-  width:fit-content;
-  border-radius:20px;
-  animation:shine 5s infinite;
-}
-@keyframes shine{
-  0%, 100%{
-    box-shadow: 0 0 10px goldenrod;
-  }
-  50%{
-    box-shadow: 0 0 70px goldenrod;
-  }
-}
-.box-peek{
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  background-color:purple;
-  position:relative;
-  animation:peek 1s infinite alternate ease-in-out;
-  margin-bottom:2rem;
-}
-
-@keyframes peek{
-  from{
-    opacity:0;
-    transform: translateX(-100%);
-  }
-  to{
-    transform:translateX(100%)
   }
 }
 
@@ -191,10 +153,36 @@
     top: 50px; left:-50px;
   }
 }
-.animation-center{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+//smiley, loaders, knapp-tryck
+#smiley{
+  font-size:2rem;
+  border: none;
+  background:none;
+  transition: transform 0.2s ease;
+  &:active{
+    transform:scale(1.2)
+  }
+  &.shake{
+    animation:shake 0.5s;
+  }
+  &.wobble{
+    animation: wobble 0.3s forwards 2;
+  }
+}
+
+@keyframes shake{
+  0%{transform: rotate(0deg);}
+  25%{transform: rotate(15deg);}
+  50%{transform: rotate(-15deg);}
+  100%{transform: rotate(0deg);}
+}
+
+@keyframes wobble{
+  0%{transform: rotate(0deg);}
+  25%{transform: rotate(-5deg);}
+  50%{transform: rotate(5deg);}
+  75%{transform: rotate(-5deg);}
+  100%{transform: rotate(0deg);}
 }
 
 .loading{
@@ -211,35 +199,50 @@
   to{transform: rotate(360deg);}
 }
 
-//bild-animering
-
-.seagull{
-  @include seagull-picture;
+.btn-click{
+  padding:0.4rem;
+  font-size:1rem;
+  margin-bottom:2rem;
+  outline:none;
+  border:none;
+  border-radius:15px;
+  box-shadow:0 9px grey;
+  background-color: colors.$button;
   &:hover{
-    animation: wobble 2s ease-in-out infinite;
+    background-color:colors.$button-dark;
+    &:active{
+      box-shadow:0 5px #666;
+      transform:translateY(4px);
+    }
   }
 }
 
-@keyframes wobble{
-  0%{transform: rotate(0deg);}
-  15%{transform: rotate(-3deg);}
-  30%{transform: rotate(3deg);}
-  45%{transform: rotate(-3deg);}
-  60%{transform: rotate(3deg);}
-  75%{transform: rotate(-2deg);}
-  100%{transform: rotate(0deg);}
+.dot{
+    display:inline-block;
+    width:1rem;
+    height:1rem;
+    margin:0 0.3rem;
+    border-radius:50%;
+    background-color:var(--nav-bg);
+    animation:blink 1.4s infinite ease-in-out;
 }
-.seagull2{
-  @include seagull-picture;
-  &:hover{
-    animation:speed-off 0.5s ease-out forwards;
-  }
+.dot:nth-child(2){
+    animation-delay:0.2s;
 }
-@keyframes speed-off{
-  0%{transform: translateX(0px) rotate(0deg); opacity: 1;}
-  100%{transform: translateX(200px) rotate(-5deg); opacity: 0;}
+.dot:nth-child(3){
+    animation-delay: 0.4s;
 }
 
+@keyframes blink{
+    0%, 80%, 100%{
+        opacity:0;
+    }
+    40%{
+        opacity:1;
+    }
+}
+
+//bilder animering
 .bouncing-text span{
     display:inline-block;
     animation: studs 1.5s infinite ease-in-out;
@@ -273,4 +276,32 @@
     100%{
         transform:translateY(0);
     }
+}
+
+.seagull{
+  @include seagull-picture;
+  &:hover{
+    animation: wobble 2s ease-in-out infinite;
+  }
+}
+
+@keyframes wobble{
+  0%{transform: rotate(0deg);}
+  15%{transform: rotate(-3deg);}
+  30%{transform: rotate(3deg);}
+  45%{transform: rotate(-3deg);}
+  60%{transform: rotate(3deg);}
+  75%{transform: rotate(-2deg);}
+  100%{transform: rotate(0deg);}
+}
+
+.seagull2{
+  @include seagull-picture;
+  &:hover{
+    animation:speed-off 0.5s ease-out forwards;
+  }
+}
+@keyframes speed-off{
+  0%{transform: translateX(0px) rotate(0deg); opacity: 1;}
+  100%{transform: translateX(200px) rotate(-5deg); opacity: 0;}
 }
